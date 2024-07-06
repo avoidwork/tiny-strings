@@ -1,0 +1,59 @@
+{
+  "name": "tiny-strings",
+  "version": "1.0.0",
+  "description": "Scrape Strings from Arrays and Objects.",
+  "main": "dist/tiny-strings.cjs",
+  "exports": {
+    "types": "./types/strings.d.ts",
+    "import": "./dist/tiny-strings.js",
+    "require": "./dist/tiny-strings.cjs"
+  },
+  "type": "module",
+  "types": "types/strings.d.ts",
+  "engines": {
+    "node": ">=12"
+  },
+  "engineStrict": true,
+  "files": [
+    "dist/tiny-strings.cjs",
+    "dist/tiny-strings.js",
+    "types/strings.d.ts"
+  ],
+  "scripts": {
+    "build": "npm run lint && npm run rollup && npm run mocha",
+    "changelog": "auto-changelog -p",
+    "lint": "eslint --fix *.js src/*.js test/*.js",
+    "mocha": "nyc mocha test/*.js",
+    "rollup": "rollup --config",
+    "test": "npm run lint && npm run mocha",
+    "types": "npx -p typescript tsc src/strings.js --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "auto-changelog": "^2.4.0",
+    "eslint": "^9.6.0",
+    "husky": "^9.0.11",
+    "mocha": "^10.6.0",
+    "nyc": "^17.0.0",
+    "precise": "^4.0.3",
+    "rollup": "^4.18.0",
+    "typescript": "^5.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avoidwork/tiny-strings.git"
+  },
+  "keywords": [
+    "scraper",
+    "object",
+    "array",
+    "string"
+  ],
+  "author": "Jason Mulligan <jason.mulligan@avoidwork.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/avoidwork/tiny-strings/issues"
+  },
+  "homepage": "https://github.com/avoidwork/tiny-strings#readme"
+}
