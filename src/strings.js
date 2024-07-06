@@ -1,6 +1,6 @@
 import {MSG_INVALID_INPUT, STRING_OBJECT, STRING_STRING} from "./constants.js";
 
-export function strings (arg = {}, keys = true, result = []) {
+export function strings (arg = {}, keys = false, result = []) {
 	if (typeof arg !== STRING_OBJECT) {
 		throw new TypeError(MSG_INVALID_INPUT);
 	}
@@ -10,7 +10,7 @@ export function strings (arg = {}, keys = true, result = []) {
 			if (typeof item === STRING_STRING) {
 				result.push(item);
 			} else if (typeof item === STRING_OBJECT) {
-				strings(item, result);
+				strings(item, keys, result);
 			}
 		}
 	} else {
@@ -26,13 +26,13 @@ export function strings (arg = {}, keys = true, result = []) {
 			} else if (Array.isArray(arg[key])) {
 				for (const value of arg[key]) {
 					if (typeof value === STRING_OBJECT) {
-						strings(value, result);
+						strings(value, keys, result);
 					} else if (typeof value === STRING_STRING) {
 						result.push(value);
 					}
 				}
 			} else if (typeof arg[key] === STRING_OBJECT) {
-				strings(arg[key], result);
+				strings(arg[key], keys, result);
 			}
 		}
 	}
