@@ -1,5 +1,11 @@
 import {MSG_INVALID_INPUT, STRING_OBJECT, STRING_STRING} from "./constants.js";
 
+/**
+ * Returns an `Array` of `Strings` extracted from `arg`
+ * @param arg
+ * @param keys
+ * @returns string[]
+ */
 export function strings (arg = {}, keys = false) {
 	if (typeof arg !== STRING_OBJECT) {
 		throw new TypeError(MSG_INVALID_INPUT);

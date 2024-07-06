@@ -2,6 +2,42 @@
 
 Scrape Strings from Arrays and Objects.
 
+## API
+
+### strings(*arg = {}, keys = false*)
+
+Returns an `Array` of `Strings` extracted from `arg`
+
+    param  {Array} or {Object} to scrape
+    param  {Boolean} to include Object keys
+	return {Array} Array of Strings scraped from 'arg'
+
+**Example**
+
+Without keys
+
+```javascript
+strings({...});
+```
+
+With keys
+```javascript
+strings({...}, true);
+```
+
+## Testing
+
+Tiny Strings has 100% code coverage with its tests.
+
+```console
+------------------|---------|----------|---------|---------|-------------------
+File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+------------------|---------|----------|---------|---------|-------------------
+All files         |     100 |     90.9 |     100 |     100 |                  
+ tiny-strings.cjs |     100 |     90.9 |     100 |     100 | 14,25            
+------------------|---------|----------|---------|---------|-------------------
+```
+
 ## Example
 
 ### Input
@@ -105,20 +141,58 @@ const extracted = strings([
 ### Output
 
 ```javascript
-[]
-```
-
-## Testing
-
-Tiny Strings has 100% code coverage with its tests.
-
-```console
-------------------|---------|----------|---------|---------|-------------------
-File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
-------------------|---------|----------|---------|---------|-------------------
-All files         |     100 |    82.35 |     100 |     100 |                  
- tiny-strings.cjs |     100 |    82.35 |     100 |     100 | 17-21            
-------------------|---------|----------|---------|---------|-------------------
+[
+	"66897c0b5bb3f3bda598a7be",
+	"57cc37b7-ea7b-4cf5-b07e-238a15cc1cdd",
+	"$1,290.80",
+	"http://placehold.it/32x32",
+	"blue",
+	"Valeria Jenkins",
+	"female",
+	"GEOLOGIX",
+	"valeriajenkins@geologix.com",
+	"+1 (976) 597-3338",
+	"681 Jackson Place, Collins, Nevada, 8477",
+	"Officia sunt fugiat aute eiusmod cillum excepteur enim consectetur in pariatur consequat cupidatat. Id minim anim sint cupidatat nostrud labore esse proident eiusmod eu. Dolor sit aute adipisicing est proident eiusmod voluptate reprehenderit sunt aliquip non quis. Lorem voluptate laboris aliquip cupidatat.\r\n",
+	"2016-04-05T01:14:10 +04:00",
+	"voluptate",
+	"esse",
+	"amet",
+	"mollit",
+	"in",
+	"consectetur",
+	"sunt",
+	"Moore Howell",
+	"Summer Cline",
+	"Francis Simon",
+	"Hello, Valeria Jenkins! You have 1 unread messages.",
+	"banana",
+	"66897c0b0eea9250887803d6",
+	"6eac3134-b442-4289-a498-ef9b5624f196",
+	"$1,302.96",
+	"http://placehold.it/32x32",
+	"brown",
+	"Amanda Rodgers",
+	"female",
+	"GRAINSPOT",
+	"amandarodgers@grainspot.com",
+	"+1 (987) 457-3247",
+	"650 Osborn Street, Edenburg, New Jersey, 1377",
+	"Eu minim enim aliquip nulla aliquip elit sit nostrud dolore reprehenderit aliquip sit qui Lorem. Enim et excepteur dolor velit minim nulla ullamco nisi. Qui adipisicing id occaecat nisi duis quis sint minim laborum minim id. Do id aliqua deserunt incididunt nulla officia nostrud reprehenderit laborum aliquip qui. Veniam pariatur eu quis reprehenderit velit nostrud deserunt deserunt. Commodo duis esse deserunt laborum tempor dolore anim laborum deserunt ipsum sit tempor consectetur.\r\n",
+	"2023-05-27T09:39:08 +04:00",
+	"Lorem",
+	"sunt",
+	"cillum",
+	"ea",
+	"in",
+	"aute",
+	"culpa",
+	"Jo Nunez",
+	"Mcdonald Burns",
+	"Pacheco Vang",
+	"Hello, Amanda Rodgers! You have 7 unread messages.",
+	"strawberry"
+]
 ```
 
 ## License

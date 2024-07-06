@@ -5,7 +5,7 @@
  * @license BSD-3-Clause
  * @version 1.0.0
  */
-(function(g,f){typeof exports==='object'&&typeof module!=='undefined'?f(exports):typeof define==='function'&&define.amd?define(['exports'],f):(g=typeof globalThis!=='undefined'?globalThis:g||self,f(g.lru={}));})(this,(function(exports){'use strict';const STRING_STRING = "string";
+(function(g,f){typeof exports==='object'&&typeof module!=='undefined'?f(exports):typeof define==='function'&&define.amd?define(['exports'],f):(g=typeof globalThis!=='undefined'?globalThis:g||self,f(g.strings={}));})(this,(function(exports){'use strict';const STRING_STRING = "string";
 const STRING_OBJECT = "object";
 const MSG_INVALID_INPUT = "Argument must be an Array or Object";function strings (arg = {}, keys = false) {
 	if (typeof arg !== STRING_OBJECT) {
