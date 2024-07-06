@@ -1,16 +1,18 @@
 import {MSG_INVALID_INPUT, STRING_OBJECT, STRING_STRING} from "./constants.js";
 
-export function strings (arg = {}, keys = false, result = []) {
+export function strings (arg = {}, keys = false) {
 	if (typeof arg !== STRING_OBJECT) {
 		throw new TypeError(MSG_INVALID_INPUT);
 	}
+
+	const result = [];
 
 	if (Array.isArray(arg)) {
 		for (const item of arg) {
 			if (typeof item === STRING_STRING) {
 				result.push(item);
 			} else if (typeof item === STRING_OBJECT) {
-				strings(item, keys, result);
+				result.push(...strings(item, keys));
 			}
 		}
 	} else {
@@ -26,13 +28,13 @@ export function strings (arg = {}, keys = false, result = []) {
 			} else if (Array.isArray(arg[key])) {
 				for (const value of arg[key]) {
 					if (typeof value === STRING_OBJECT) {
-						strings(value, keys, result);
+						result.push(...strings(value, keys));
 					} else if (typeof value === STRING_STRING) {
 						result.push(value);
 					}
 				}
 			} else if (typeof arg[key] === STRING_OBJECT) {
-				strings(arg[key], keys, result);
+				result.push(...strings(arg[key], keys));
 			}
 		}
 	}
