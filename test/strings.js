@@ -107,5 +107,41 @@ describe("Testing functionality", function () {
 
 	it("It should throw a TypeError if receiving a String", function () {
 		throws(() => strings("invalid"), TypeError);
-	})
+	});
+
+	it("It should throw a TypeError if receiving a Number", function () {
+		throws(() => strings(123), TypeError);
+	});
+
+	it("It should throw a TypeError if receiving a Boolean", function () {
+		throws(() => strings(false), TypeError);
+	});
+
+	it("It should throw a TypeError if receiving undefined", function () {
+		throws(() => strings(undefined), TypeError);
+	});
+
+	it("It should throw a TypeError if receiving null", function () {
+		throws(() => strings(null), TypeError);
+	});
+
+	it("It should throw a TypeError if receiving a Set", function () {
+		throws(() => strings(new Set()), TypeError);
+	});
+
+	it("It should throw a TypeError if receiving a Map", function () {
+		throws(() => strings(new Map()), TypeError);
+	});
+
+	it("It should throw a TypeError if receiving a WeakMap", function () {
+		throws(() => strings(new WeakMap()), TypeError);
+	});
+
+	it("It should throw a TypeError if receiving a WeakSet", function () {
+		throws(() => strings(new WeakSet()), TypeError);
+	});
+
+	it("It should throw a TypeError if receiving a WeakRef", function () {
+		throws(() => strings(new WeakRef()), TypeError);
+	});
 });

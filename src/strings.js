@@ -7,7 +7,7 @@ import {MSG_INVALID_INPUT, STRING_OBJECT, STRING_STRING} from "./constants.js";
  * @returns string[]
  */
 export function strings (arg, keys = false) {
-	if (typeof arg !== STRING_OBJECT) {
+	if (typeof arg !== STRING_OBJECT || arg instanceof Map || arg instanceof Set || arg instanceof WeakMap || arg instanceof WeakSet) {
 		throw new TypeError(MSG_INVALID_INPUT);
 	}
 

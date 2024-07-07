@@ -3,7 +3,7 @@
  *
  * @copyright 2024 Jason Mulligan <jason.mulligan@avoidwork.com>
  * @license BSD-3-Clause
- * @version 1.0.4
+ * @version 1.0.5
  */
 'use strict';
 
@@ -18,7 +18,7 @@ const MSG_INVALID_INPUT = "Argument must be an Array or Object";
  * @returns string[]
  */
 function strings (arg, keys = false) {
-	if (typeof arg !== STRING_OBJECT) {
+	if (typeof arg !== STRING_OBJECT || arg instanceof Map || arg instanceof Set || arg instanceof WeakMap || arg instanceof WeakSet) {
 		throw new TypeError(MSG_INVALID_INPUT);
 	}
 
