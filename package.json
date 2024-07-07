@@ -1,6 +1,6 @@
 {
   "name": "tiny-strings",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Scrape Strings from Arrays and Objects.",
   "main": "dist/tiny-strings.cjs",
   "exports": {

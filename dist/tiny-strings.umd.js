@@ -3,7 +3,7 @@
  *
  * @copyright 2024 Jason Mulligan <jason.mulligan@avoidwork.com>
  * @license BSD-3-Clause
- * @version 1.0.2
+ * @version 1.0.3
  */
 (function(g,f){typeof exports==='object'&&typeof module!=='undefined'?f(exports):typeof define==='function'&&define.amd?define(['exports'],f):(g=typeof globalThis!=='undefined'?globalThis:g||self,f(g.strings={}));})(this,(function(exports){'use strict';const STRING_STRING = "string";
 const STRING_OBJECT = "object";
@@ -13,7 +13,7 @@ const MSG_INVALID_INPUT = "Argument must be an Array or Object";/**
  * @param keys
  * @returns string[]
  */
-function strings (arg = {}, keys = false) {
+function strings (arg, keys = false) {
 	if (typeof arg !== STRING_OBJECT) {
 		throw new TypeError(MSG_INVALID_INPUT);
 	}
