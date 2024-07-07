@@ -4,7 +4,7 @@ Scrape Strings from Arrays and Objects.
 
 ## API
 
-### strings(*arg = {}, keys = false*)
+### strings(*arg, keys = false*)
 
 Returns an `Array` of `Strings` extracted from `arg`
 
