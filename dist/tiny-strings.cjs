@@ -11,6 +11,12 @@ const STRING_STRING = "string";
 const STRING_OBJECT = "object";
 const MSG_INVALID_INPUT = "Argument must be an Array or Object";
 
+/**
+ * Returns an `Array` of `Strings` extracted from `arg`
+ * @param arg
+ * @param keys
+ * @returns string[]
+ */
 function strings (arg = {}, keys = false) {
 	if (typeof arg !== STRING_OBJECT) {
 		throw new TypeError(MSG_INVALID_INPUT);
@@ -36,14 +42,6 @@ function strings (arg = {}, keys = false) {
 		for (const key of argKeys) {
 			if (typeof arg[key] === STRING_STRING) {
 				result.push(arg[key]);
-			} else if (Array.isArray(arg[key])) {
-				for (const value of arg[key]) {
-					if (typeof value === STRING_OBJECT) {
-						result.push(...strings(value, keys));
-					} else if (typeof value === STRING_STRING) {
-						result.push(value);
-					}
-				}
 			} else if (typeof arg[key] === STRING_OBJECT) {
 				result.push(...strings(arg[key], keys));
 			}

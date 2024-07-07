@@ -31,14 +31,6 @@ export function strings (arg = {}, keys = false) {
 		for (const key of argKeys) {
 			if (typeof arg[key] === STRING_STRING) {
 				result.push(arg[key]);
-			} else if (Array.isArray(arg[key])) {
-				for (const value of arg[key]) {
-					if (typeof value === STRING_OBJECT) {
-						result.push(...strings(value, keys));
-					} else if (typeof value === STRING_STRING) {
-						result.push(value);
-					}
-				}
 			} else if (typeof arg[key] === STRING_OBJECT) {
 				result.push(...strings(arg[key], keys));
 			}
