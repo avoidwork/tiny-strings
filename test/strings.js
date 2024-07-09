@@ -126,7 +126,8 @@ describe("Testing functionality", function () {
 				},
 				[
 					"nested array"
-				]
+				],
+				null
 			]
 		}], false, ["nested"]);
 		const expectedResult = [

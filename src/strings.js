@@ -1,6 +1,21 @@
 import {MSG_INVALID_INPUT, STRING_OBJECT, STRING_STRING} from "./constants.js";
 
 /**
+ * Pushes `item` to `result` if it is a `String` or an `Object`
+ * @param result
+ * @param item
+ * @param keys
+ * @param skip
+ */
+function push (result, item, keys, skip) {
+	if (typeof item === STRING_STRING) {
+		result.push(item);
+	} else if (typeof item === STRING_OBJECT && item !== null) {
+		result.push(...strings(item, keys, skip));
+	}
+}
+
+/**
  * Returns an `Array` of `Strings` extracted from `arg`
  * @param arg
  * @param keys
@@ -16,11 +31,7 @@ export function strings (arg, keys = false, skip = []) {
 
 	if (Array.isArray(arg)) {
 		for (const item of arg) {
-			if (typeof item === STRING_STRING) {
-				result.push(item);
-			} else if (typeof item === STRING_OBJECT) {
-				result.push(...strings(item, keys, skip));
-			}
+			push(result, item, keys, skip);
 		}
 	} else {
 		const argKeys = skip.length === 0 ? Object.keys(arg) : Object.keys(arg).filter(it => !skip.includes(it));
@@ -30,11 +41,7 @@ export function strings (arg, keys = false, skip = []) {
 		}
 
 		for (const key of argKeys) {
-			if (typeof arg[key] === STRING_STRING) {
-				result.push(arg[key]);
-			} else if (typeof arg[key] === STRING_OBJECT && arg[key] !== null) {
-				result.push(...strings(arg[key], keys, skip));
-			}
+			push(result, arg[key], keys, skip);
 		}
 	}
 
