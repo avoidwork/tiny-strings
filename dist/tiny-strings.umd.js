@@ -3,7 +3,7 @@
  *
  * @copyright 2024 Jason Mulligan <jason.mulligan@avoidwork.com>
  * @license BSD-3-Clause
- * @version 1.0.10
+ * @version 1.0.11
  */
 (function(g,f){typeof exports==='object'&&typeof module!=='undefined'?f(exports):typeof define==='function'&&define.amd?define(['exports'],f):(g=typeof globalThis!=='undefined'?globalThis:g||self,f(g.strings={}));})(this,(function(exports){'use strict';const STRING_STRING = "string";
 const STRING_OBJECT = "object";
@@ -39,7 +39,7 @@ function strings (arg, keys = false, skip = []) {
 		for (const key of argKeys) {
 			if (typeof arg[key] === STRING_STRING) {
 				result.push(arg[key]);
-			} else if (typeof arg[key] === STRING_OBJECT) {
+			} else if (typeof arg[key] === STRING_OBJECT && arg[key] !== null) {
 				result.push(...strings(arg[key], keys, skip));
 			}
 		}

@@ -32,7 +32,7 @@ export function strings (arg, keys = false, skip = []) {
 		for (const key of argKeys) {
 			if (typeof arg[key] === STRING_STRING) {
 				result.push(arg[key]);
-			} else if (typeof arg[key] === STRING_OBJECT) {
+			} else if (typeof arg[key] === STRING_OBJECT && arg[key] !== null) {
 				result.push(...strings(arg[key], keys, skip));
 			}
 		}

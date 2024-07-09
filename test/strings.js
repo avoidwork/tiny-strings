@@ -114,7 +114,8 @@ describe("Testing functionality", function () {
 			"description": "this field has \"embed quotes\"",
 			"object": {
 				"abc": true,
-				"def": false
+				"def": false,
+				"invalid": null
 			},
 			"array": [
 				"ghi",
