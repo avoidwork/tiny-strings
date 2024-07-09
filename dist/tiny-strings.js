@@ -3,7 +3,7 @@
  *
  * @copyright 2024 Jason Mulligan <jason.mulligan@avoidwork.com>
  * @license BSD-3-Clause
- * @version 1.0.8
+ * @version 1.0.9
  */
 const STRING_STRING = "string";
 const STRING_OBJECT = "object";
