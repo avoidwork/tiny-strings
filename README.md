@@ -10,6 +10,7 @@ Returns an `Array` of `Strings` extracted from `arg`
 
     param  {Array} or {Object} to scrape
     param  {Boolean} to include Object keys
+    param  {Array} Keys to skip scraping
 	return {Array} Array of Strings scraped from 'arg'
 
 **Example**

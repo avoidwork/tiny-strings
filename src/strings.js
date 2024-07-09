@@ -4,6 +4,7 @@ import {MSG_INVALID_INPUT, STRING_OBJECT, STRING_STRING} from "./constants.js";
  * Returns an `Array` of `Strings` extracted from `arg`
  * @param arg
  * @param keys
+ * @param skip
  * @returns string[]
  */
 export function strings (arg, keys = false, skip = []) {

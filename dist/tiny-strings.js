@@ -3,7 +3,7 @@
  *
  * @copyright 2024 Jason Mulligan <jason.mulligan@avoidwork.com>
  * @license BSD-3-Clause
- * @version 1.0.7
+ * @version 1.0.8
  */
 const STRING_STRING = "string";
 const STRING_OBJECT = "object";
@@ -11,6 +11,7 @@ const MSG_INVALID_INPUT = "Argument must be an Array or Object";/**
  * Returns an `Array` of `Strings` extracted from `arg`
  * @param arg
  * @param keys
+ * @param skip
  * @returns string[]
  */
 function strings (arg, keys = false, skip = []) {
