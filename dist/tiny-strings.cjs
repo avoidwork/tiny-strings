@@ -3,7 +3,7 @@
  *
  * @copyright 2024 Jason Mulligan <jason.mulligan@avoidwork.com>
  * @license BSD-3-Clause
- * @version 1.0.6
+ * @version 1.0.7
  */
 'use strict';
 
@@ -17,7 +17,7 @@ const MSG_INVALID_INPUT = "Argument must be an Array or Object";
  * @param keys
  * @returns string[]
  */
-function strings (arg, keys = false) {
+function strings (arg, keys = false, skip = []) {
 	if (typeof arg !== STRING_OBJECT || arg instanceof Map || arg instanceof Set || arg instanceof WeakMap || arg instanceof WeakSet) {
 		throw new TypeError(MSG_INVALID_INPUT);
 	}
@@ -29,11 +29,11 @@ function strings (arg, keys = false) {
 			if (typeof item === STRING_STRING) {
 				result.push(item);
 			} else if (typeof item === STRING_OBJECT) {
-				result.push(...strings(item, keys));
+				result.push(...strings(item, keys, skip));
 			}
 		}
 	} else {
-		const argKeys = Object.keys(arg);
+		const argKeys = skip.length === 0 ? Object.keys(arg) : Object.keys(arg).filter(it => !skip.includes(it));
 
 		if (keys) {
 			result.push(...argKeys);
@@ -43,7 +43,7 @@ function strings (arg, keys = false) {
 			if (typeof arg[key] === STRING_STRING) {
 				result.push(arg[key]);
 			} else if (typeof arg[key] === STRING_OBJECT) {
-				result.push(...strings(arg[key], keys));
+				result.push(...strings(arg[key], keys, skip));
 			}
 		}
 	}

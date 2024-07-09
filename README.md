@@ -4,7 +4,7 @@ Scrape Strings from Arrays and Objects.
 
 ## API
 
-### strings(*arg, keys = false*)
+### strings(*arg, keys = false, skip = []*)
 
 Returns an `Array` of `Strings` extracted from `arg`
 
@@ -23,6 +23,11 @@ strings({...});
 With keys
 ```javascript
 strings({...}, true);
+```
+
+Skipping keys
+```javascript
+strings({...}, false/true, ["skippedKey1", "skippedKey2"]);
 ```
 
 ## Testing

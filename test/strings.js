@@ -86,13 +86,48 @@ describe("Testing functionality", function () {
 				1234,
 				"other string",
 				{
-					"nested": true
+					"nested": "nested value"
 				},
 				[
 					"nested array"
 				]
 			]
 		}]);
+		const expectedResult = [
+			"test-123",
+			"test@example.com",
+			"d,e",
+			"this field has \"embed quotes\"",
+			"ghi",
+			"other string",
+			"nested value",
+			"nested array"
+		];
+		strictEqual(JSON.stringify(results), JSON.stringify(expectedResult), "Arrays of strings should match");
+	});
+
+	it("It should extract all strings from an Array of Objects", function () {
+		const results = strings([{
+			"id": "test-123",
+			"email": "test@example.com",
+			"field1:field2": "d,e",
+			"description": "this field has \"embed quotes\"",
+			"object": {
+				"abc": true,
+				"def": false
+			},
+			"array": [
+				"ghi",
+				1234,
+				"other string",
+				{
+					"nested": "nested value"
+				},
+				[
+					"nested array"
+				]
+			]
+		}], false, ["nested"]);
 		const expectedResult = [
 			"test-123",
 			"test@example.com",

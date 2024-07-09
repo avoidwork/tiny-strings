@@ -6,7 +6,7 @@ import {MSG_INVALID_INPUT, STRING_OBJECT, STRING_STRING} from "./constants.js";
  * @param keys
  * @returns string[]
  */
-export function strings (arg, keys = false) {
+export function strings (arg, keys = false, skip = []) {
 	if (typeof arg !== STRING_OBJECT || arg instanceof Map || arg instanceof Set || arg instanceof WeakMap || arg instanceof WeakSet) {
 		throw new TypeError(MSG_INVALID_INPUT);
 	}
@@ -18,11 +18,11 @@ export function strings (arg, keys = false) {
 			if (typeof item === STRING_STRING) {
 				result.push(item);
 			} else if (typeof item === STRING_OBJECT) {
-				result.push(...strings(item, keys));
+				result.push(...strings(item, keys, skip));
 			}
 		}
 	} else {
-		const argKeys = Object.keys(arg);
+		const argKeys = skip.length === 0 ? Object.keys(arg) : Object.keys(arg).filter(it => !skip.includes(it));
 
 		if (keys) {
 			result.push(...argKeys);
@@ -32,7 +32,7 @@ export function strings (arg, keys = false) {
 			if (typeof arg[key] === STRING_STRING) {
 				result.push(arg[key]);
 			} else if (typeof arg[key] === STRING_OBJECT) {
-				result.push(...strings(arg[key], keys));
+				result.push(...strings(arg[key], keys, skip));
 			}
 		}
 	}
